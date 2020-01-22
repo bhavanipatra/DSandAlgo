@@ -3,26 +3,46 @@ package demo;
 public class Array {
 	
 	private int[] list;
-	private int count=0;
+	private int count = 0;
 	
 	public Array(int len) {
-		list = new int[len];
+		this.list = new int[len];
 	}
 	
-	public void print() {
+	public void insert(int item) {
+		this.list[count] = item;
+		count+=1;
+	}
+	
+	public void display() {
 		System.out.print("[");
-		for(int i=0; i<this.count; i++) {
+		for(int i=0; i<this.list.length; i++) {
 			System.out.print(this.list[i]);
-			if(i != (this.count-1)) {
+			if(i!=this.list.length -1) {
 				System.out.print(",");
 			}
 		}
 		System.out.print("]");
+		System.out.println();
 	}
 	
-	public void insert(int e) {
-		if(this.count == this.list.length)
-		list[this.count] = e;
-		this.count++;
+	public int indexOf(int item) {
+		for(int i=0; i<this.list.length; i++) {
+			if(item == this.list[i]) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void removeAt(int index) {
+		int[] list1 = new int[this.list.length-1];
+		for(int i=index; i<(this.list.length-1); i++) {
+			this.list[i] = this.list[i+1];
+		}
+		for(int i=0; i<list1.length; i++) {
+			list1[i] = this.list[i];
+		}
+		this.list = list1;
 	}
 }
