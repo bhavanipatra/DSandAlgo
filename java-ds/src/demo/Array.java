@@ -16,9 +16,9 @@ public class Array {
 	
 	public void display() {
 		System.out.print("[");
-		for(int i=0; i<this.list.length; i++) {
+		for(int i=0; i<count; i++) {
 			System.out.print(this.list[i]);
-			if(i!=this.list.length -1) {
+			if(i!=count -1) {
 				System.out.print(",");
 			}
 		}
@@ -43,6 +43,7 @@ public class Array {
 		for(int i=0; i<list1.length; i++) {
 			list1[i] = this.list[i];
 		}
+		count-=1;
 		this.list = list1;
 	}
 }
