@@ -10,6 +10,12 @@ public class Array {
 	}
 	
 	public void insert(int item) {
+		if(count == this.list.length) {
+			int[] list1 = new int[this.list.length*2];
+			for(int i=0; i<list.length; i++)
+				list1[i] = list[i];
+			list = list1;
+		}
 		this.list[count] = item;
 		count+=1;
 	}
@@ -27,7 +33,7 @@ public class Array {
 	}
 	
 	public int indexOf(int item) {
-		for(int i=0; i<this.list.length; i++) {
+		for(int i=0; i<count; i++) {
 			if(item == this.list[i]) {
 				return i;
 			}
@@ -35,7 +41,10 @@ public class Array {
 		return -1;
 	}
 	
-	public void removeAt(int index) {
+	public int removeAt(int index) {
+		if(index <0 || index>=count)
+			return -1;
+		int var = list[index];
 		int[] list1 = new int[this.list.length-1];
 		for(int i=index; i<(this.list.length-1); i++) {
 			this.list[i] = this.list[i+1];
@@ -45,5 +54,6 @@ public class Array {
 		}
 		count-=1;
 		this.list = list1;
+		return var;
 	}
 }
