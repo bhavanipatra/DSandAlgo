@@ -56,4 +56,44 @@ public class Array {
 		this.list = list1;
 		return var;
 	}
+	
+	public int max() {
+		int maxNum=0;
+		for(int num: this.list) {
+			if(num>maxNum) {
+				maxNum = num;
+			}
+		}
+		return maxNum;
+	}
+	
+	public Array intersect(Array arr1) {
+		Array commonItems = new Array(1);
+		for(int x=0; x<arr1.list.length; x++) {
+			for(int y=0; y<this.list.length; y++) {
+				if(arr1.list[x] == this.list[y])
+					commonItems.insert(arr1.list[x]);
+			}
+		}
+		return commonItems;
+		
+	}
+	
+	public void reverse() {
+		Array reversedArray = new Array(this.list.length);
+		int count =this.count;
+		for(int i=this.count-1; i>=0; i--) {
+			if(count!=0) {
+				reversedArray.list[this.count-count] = this.list[i];
+			}
+			count--;
+		}
+		this.list = reversedArray.list;
+	}
+	
+	public void insertAt(int item, int index) {
+		for(int i=index; i<this.count; i++) {
+			
+		}
+	}
 }
