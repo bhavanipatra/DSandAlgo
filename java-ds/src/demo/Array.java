@@ -92,8 +92,11 @@ public class Array {
 	}
 	
 	public void insertAt(int item, int index) {
-		for(int i=index; i<this.count; i++) {
-			
+		this.insert(0);
+		int c= this.count;
+		for(int i=c; i>index; i--) {
+			this.list[i] = this.list[i-1];
 		}
+		this.list[index] = item;
 	}
 }

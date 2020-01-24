@@ -32,5 +32,8 @@ public class Main {
 		list1.reverse();
 		list1.display();
 		
+		System.out.println("Adding element at the end of List 2: ");
+		list2.insertAt(99, 7);
+		list2.display();
 	}
 }
