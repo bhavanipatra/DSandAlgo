@@ -1,5 +1,6 @@
 package demo;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -13,19 +14,6 @@ public class LinkedList {
 	private Node first;
 	private Node last;
 	
-	//addLast
-	public void addLast(int item) {
-		Node node = new Node(item);
-		if(first == null) {
-			first = last = node;
-		}
-		else {
-			last.next = node;
-			last = node;
-		}
-	}
-	
-	//addFirst
 	public void addFirst(int item) {
 		Node node = new Node(item);
 		if(first == null) {
@@ -35,63 +23,97 @@ public class LinkedList {
 			node.next = first;
 			first = node;
 		}
-	}
-	
-	//indexOf
-	public int indexOf(int item) {
-
-		int index = 0;
-		Node current = first;
 		
-		while(current != null) {
-			if(current.value == item) return index;
-			current = current.next;
-			index++;
-		}
-		return -1;
 	}
 	
-	//contains
+	public void addLast(int item) {
+		Node node = new Node(item);
+		if(first == null) {
+			first = last = node;
+		}
+		else {
+			last.next = node;
+			last = last.next;
+		}
+	}
+	
+	public void deleteFirst() {
+		if(first == null) {
+			throw new NoSuchElementException();
+		}
+		else {
+			Node node = first.next;
+			first.next = null;
+			first = node;
+		}
+	}
+	
+	public void deleteLast() {
+		if(first == null) throw new NoSuchElementException();
+		if(first == last) {
+			first = last = null;
+			return;
+		}
+		Node cNode = first;
+		while(cNode != last) {
+			cNode = cNode.next;
+		}
+		cNode.next = null;
+		last = cNode;
+	}
+	
 	public boolean contains(int item) {
 		boolean flag = false;
-		Node current = first;
+		Node cNode = first;
 		
-		while(current != null) {
-			if(current.value == item) flag = true;
-			current = current.next;
+		if(first == null) throw new NoSuchElementException();
+		if(first.value == item) return true;
+		
+		while(cNode.next != null) {
+			if(cNode.value == item) flag = true;
 		}
 		return flag;
 	}
 	
-	//removeFirst
-	public void removeFirst() {
-		if(first == null) throw new NoSuchElementException();
-		if(first == last) { 
-			first = last = null; 
-			return;
-		}
-		Node node = first.next;
-		first.next = null;
-		first = node;
-	}
+	public int indexOf(int item) {
 
-	//removeLast
-	public void removeLast() {
+		int index=0;
 		if(first == null) throw new NoSuchElementException();
-		if(first == last) { 
-			first = last = null; 
-			return;
+		Node cNode = first;
+		while(cNode.next != null) {
+			index++;
+			cNode = cNode.next;
 		}
+		
+		return index;
+	}
+	
+	public ArrayList<Integer> toArray() {
+		if(first == null) throw new NoSuchElementException();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		Node current = first;
-		while(current.next != null) {
-			if(current.next == last) {
-				last = current;
-				last.next = null;
-			}
+		
+		while(current != null) {
+			list.add(current.value);
 			current = current.next;
 		}
-		
-		
+		return list;
 	}
+	
+	public void reverse() {
+		if(first == null) throw new NoSuchElementException();
+		Node previous = null;
+		Node current = first;
+		Node temp =first.next;
 		
+		while(current != null) {
+			temp = current.next;
+			current.next = previous;
+			previous = current;
+			current = temp;
+		}
+		last = first;
+		first = previous;
+	}
 }
+
