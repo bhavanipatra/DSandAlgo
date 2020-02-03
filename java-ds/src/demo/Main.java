@@ -33,8 +33,10 @@ public class Main {
 //		list.addLast(6);
 //		list.reverse();
 //		System.out.println(list.toArray());
-		list.printMiddle();
+//		list.printMiddle();
 //		System.out.println(list.getKthFromTheEnd(1));
+		LinkedList list1 = LinkedList.createWithLoop();
+		System.out.println(list1.hasLoop());
 		
 	}
 }

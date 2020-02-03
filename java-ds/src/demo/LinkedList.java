@@ -157,7 +157,16 @@ public class LinkedList {
 	}
 	
 	//Exercise-2
-	public void hasLoop() {
+	public static LinkedList createWithLoop() {
+		LinkedList list = new LinkedList();
+		list.addLast(1);
+		list.addLast(2);
+		list.addLast(3);
+		list.last.next = list.first.next;
+		return list;
+	}
+	//Exercise-2
+	public String hasLoop() {
 		Node slow;
 		Node fast;
 		slow = fast = first;
@@ -165,11 +174,10 @@ public class LinkedList {
 			slow = slow.next;
 			fast = fast.next.next;
 			if(slow == fast) {
-				System.out.println("has Loop");
-				return;
+				return ("has Loop");
 			}
-			System.out.println("No Loop");
 		}
+		return("No Loop");
 	}
 }
 
