@@ -1,5 +1,7 @@
 package demo;
 
+import java.util.Stack;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -35,8 +37,13 @@ public class Main {
 //		System.out.println(list.toArray());
 //		list.printMiddle();
 //		System.out.println(list.getKthFromTheEnd(1));
-		LinkedList list1 = LinkedList.createWithLoop();
-		System.out.println(list1.hasLoop());
+//		LinkedList list1 = LinkedList.createWithLoop();
+//		System.out.println(list1.hasLoop());
+		Stack s1 = new Stack();
+		s1.push(1);
+		s1.push(2);
+		s1.push(3);
+		System.out.println(s1);
 		
 	}
 }
