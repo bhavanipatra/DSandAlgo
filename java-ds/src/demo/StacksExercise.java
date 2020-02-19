@@ -29,16 +29,13 @@ public class StacksExercise {
 		List list1 = Arrays.asList('(','{','[','<');
 		List list2 = Arrays.asList(')','}',']','>');
 		
-		char[] charArray = givenInput.toCharArray();
-		
-		for(char c: charArray) {
+		for(char c: givenInput.toCharArray()) {
 			if(list1.contains(c)) stack.push(c);
 			else if(list2.contains(c)) {
-				if(list2.indexOf(c) != list1.indexOf(stack.pop())) {
-					balanceFlag = false;
-				}
+				if(stack.isEmpty() || list2.indexOf(c) != list1.indexOf(stack.pop())) balanceFlag = false;
 			}
 		}
+		if(!stack.isEmpty()) balanceFlag = false;
 		return balanceFlag;
 	}
 }
