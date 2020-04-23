@@ -1,4 +1,4 @@
-package demo;
+package codewithmosh;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		TwoStacks twoStacks = new TwoStacks();
 		twoStacks.pop2();
-
+		
 		System.out.println(twoStacks.pop2());
 	
 		

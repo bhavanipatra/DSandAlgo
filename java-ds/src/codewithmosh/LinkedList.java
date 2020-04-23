@@ -1,4 +1,4 @@
-package demo;
+package codewithmosh;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;

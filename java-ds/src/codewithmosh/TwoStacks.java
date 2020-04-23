@@ -1,4 +1,4 @@
-package demo;
+package codewithmosh;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;

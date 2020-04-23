@@ -1,7 +1,8 @@
-package demo;
+package codewithmosh;
 
 public class Array {
 	
+	//Variables
 	private int[] list;
 	private int count = 0;
 	
